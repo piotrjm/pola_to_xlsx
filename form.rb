@@ -49,31 +49,20 @@ workbook.write("form.xlsx")
 
 workbook = RubyXL::Parser.parse("form.xlsx")
 sheet = workbook["Sheet1"]
-sheet.sheet_name = "1.1 POPC" #rename Sheet1 to Test1
-workbook.write("./form.xlsx")
+sheet.sheet_name = "1.1 POPC" #rename Sheet1 to 1.1 POPC
+sheet.change_column_font_size(1, 11)	#Sets firsts column font size to 11
+sheet.change_column_font_size(2, 11)
+sheet.change_column_font_size(3, 11)
+sheet.change_column_font_size(4, 11)
+sheet.change_column_font_size(5, 11)
+sheet.change_column_font_size(6, 11)
 
-
-
-sheet = workbook["1.1 POPC"]
-sheet.change_column_font_name(1, 'Trebuchet MS')   # Makes first column have font Courier
+sheet.change_column_font_name(1, 'Trebuchet MS')   #Makes second column have font Trebuchet MS
 sheet.change_column_font_name(2, 'Trebuchet MS') 
 sheet.change_column_font_name(3, 'Trebuchet MS') 
 sheet.change_column_font_name(4, 'Trebuchet MS') 
 sheet.change_column_font_name(5, 'Trebuchet MS') 
 sheet.change_column_font_name(6, 'Trebuchet MS') 
-
-# sheet.add_cell(3, 0,'test')  # Sets cell A4 to string "test"
-# sheet.sheet_data[3][0].change_horizontal_alignment('center') # Sets cell A4 to center horizontal aligment
-# sheet.sheet_data[3][0].change_border(:bottom, 'thin')
-
-# c = workbook[0].add_cell(6,0)
-# c.set_number_format('yyyy/mm/dd')
-# c.change_contents(Date.today)
-# c.change_fill('D9D9D')
-# c.change_font_bold(true)
-# c.change_font_italics(true)
-# c.change_font_size(20)
-# c.change_font_color('e6c3b6')
 
 sheet.change_column_width(0, 3.38)  # Sets first column width to 3.38
 sheet.change_column_width(1, 3.38)  # Sets second column width to 3.38
@@ -358,7 +347,7 @@ c.change_border(:right, 'thin')
 
 c = workbook[0].add_cell(1, 1, "#{b}")
 c.change_font_bold(true)
-c.change_font_size(11)
+
 c.change_horizontal_alignment('center')
 c.change_vertical_alignment('center')
 c.change_text_wrap(true)
@@ -383,7 +372,7 @@ c.change_border(:right, 'thin')
 
 c = workbook[0].add_cell(3, 1, "#{cc}")
 c.change_font_bold(true)
-c.change_font_size(11)
+
 c.change_fill('d9d9d9')
 c.change_horizontal_alignment('center')
 c.change_vertical_alignment('center')
@@ -717,11 +706,91 @@ c.change_border(:left, 'thin')
 c.change_border(:bottom, 'thin')
 
 c = workbook[0].add_cell(14, 1, "#{n}")
-c.change_font_size(11)
+
 c.change_font_color('ff0000')
 c.change_text_wrap(true)
 c.change_horizontal_alignment('center')
 c.change_vertical_alignment('center')
+
+c = workbook[0].add_cell(16, 1, "#{o}")
+c.change_font_bold(true)
+
+c.change_fill('d9d9d9')
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+c.change_border(:left, 'thin')
+
+c = workbook[0].add_cell(16, 2, "#{p}")
+c.change_font_bold(true)
+
+c.change_fill('d9d9d9')
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+c.change_border(:left, 'thin')
+
+c = workbook[0].add_cell(16, 3)
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+
+c = workbook[0].add_cell(16, 4)
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+
+c = workbook[0].add_cell(16, 5)
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+c.change_border(:right, 'thin')
+
+c = workbook[0].add_cell(16, 6, "#{q}")
+c.change_font_bold(true)
+
+c.change_fill('d9d9d9')
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+c.change_border(:right, 'thin')
+
+c = workbook[0].add_cell(17, 1, "#{r}")
+
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+c.change_border(:left, 'thin')
+
+c = workbook[0].add_cell(17, 2, "#{s}")
+
+c.change_horizontal_alignment('left')
+c.change_vertical_alignment('center')
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+c.change_border(:left, 'thin')
+
+c = workbook[0].add_cell(17, 3)
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+
+c = workbook[0].add_cell(17, 4)
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+
+c = workbook[0].add_cell(17, 5)
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+c.change_border(:right, 'thin')
+
+c = workbook[0].add_cell(17, 6)
+
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+c.change_border(:bottom, 'thin')
+c.change_border(:top, 'thin')
+c.change_border(:right, 'thin')
 
 
 workbook.write("./form.xlsx")
