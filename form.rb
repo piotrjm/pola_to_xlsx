@@ -19,6 +19,28 @@ j = "Udział wnioskowanego dofinansowania w kosztach kwalifikowalnych projektu"
 k = "Okres realizacji projektu"
 l = "PLN"
 m = "%"
+n = "W odpowiedzi na każde z poniższych kryteriów należy zaznaczyć odpowiednio TAK / NIE z pola rozwijanego (niespełnienie kryterium oznacza odrzucenie wniosku)"
+o = "Lp."
+p = "II. KRYTERIA MERYTORYCZNE OCENA: TAK/NIE"
+q = "TAK/NIE"
+r = "2."
+s = "Obszar inwestycji"
+t = "NIE"
+u = "Uzasadnienie"
+v = "3."
+w = "Wskaźniki produktu i rezultatu są:
+		• adekwatne dla danego rodzaju projektu
+		• realne do osiągnięcia
+		• odzwierciedlają założone cele projektu"
+x = "4."
+y = "Koncepcja techniczna projektu jest zgodna z wymaganiami dla sieci NGA - POPC, oraz wymaganiami dla podłączenia szkół/placówek edukacyjnych"
+z = "5."
+za = "Harmonogram zadań projektu i kamieni milowych oraz zakres finansowy jest:
+			• wykonalny/możliwy do przeprowadzenia, 
+			• uwzględnia czas niezbędny na przeprowadzenie procedur konkurencyjnego wyboru i wpływ czynników zewnętrznych"
+zb = "8."
+zc = "Efektywność realizacji projektu - ocena techniczna i koszty"
+
 
 
 require 'rubyXL'
@@ -661,5 +683,45 @@ c = workbook[0].add_cell(12, 6)
 c.change_border(:bottom, 'thin')
 c.change_border(:top, 'thin')
 c.change_border(:right, 'thin')
+
+c = workbook[0].add_cell(8, 6, "#{l}")
+c.change_font_size(10)
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+c.change_border(:right, 'thin')
+c.change_border(:left, 'thin')
+c.change_border(:bottom, 'thin')
+
+c = workbook[0].add_cell(9, 6, "#{l}")
+c.change_font_size(10)
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+c.change_border(:right, 'thin')
+c.change_border(:left, 'thin')
+c.change_border(:bottom, 'thin')
+
+c = workbook[0].add_cell(10, 6, "#{m}")
+c.change_font_size(10)
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+c.change_border(:right, 'thin')
+c.change_border(:left, 'thin')
+c.change_border(:bottom, 'thin')
+
+c = workbook[0].add_cell(11, 6)
+c.change_font_size(10)
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+c.change_border(:right, 'thin')
+c.change_border(:left, 'thin')
+c.change_border(:bottom, 'thin')
+
+c = workbook[0].add_cell(14, 1, "#{n}")
+c.change_font_size(11)
+c.change_font_color('ff0000')
+c.change_text_wrap(true)
+c.change_horizontal_alignment('center')
+c.change_vertical_alignment('center')
+
 
 workbook.write("./form.xlsx")
