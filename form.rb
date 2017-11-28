@@ -50,28 +50,43 @@ workbook.write("form.xlsx")
 workbook = RubyXL::Parser.parse("form.xlsx")
 sheet = workbook["Sheet1"]
 sheet.sheet_name = "1.1 POPC" #rename Sheet1 to 1.1 POPC
-sheet.change_column_font_size(1, 11)	#Sets firsts column font size to 11
-sheet.change_column_font_size(2, 11)
-sheet.change_column_font_size(3, 11)
-sheet.change_column_font_size(4, 11)
-sheet.change_column_font_size(5, 11)
-sheet.change_column_font_size(6, 11)
 
-sheet.change_column_font_name(1, 'Trebuchet MS')   #Makes second column have font Trebuchet MS
-sheet.change_column_font_name(2, 'Trebuchet MS') 
-sheet.change_column_font_name(3, 'Trebuchet MS') 
-sheet.change_column_font_name(4, 'Trebuchet MS') 
-sheet.change_column_font_name(5, 'Trebuchet MS') 
-sheet.change_column_font_name(6, 'Trebuchet MS') 
+font_size = 11
+font_name = 'Trebuchet MS'
+row_number = 1
+while row_number < 7
+	sheet.change_column_font_name(row_number, font_name) #sets given column font to Trebuchet MS
+	sheet.change_column_font_size(row_number, font_size) #sets given column font size to 11
+	row_number += 1
+end
 
-sheet.change_column_width(0, 3.38)  # Sets first column width to 3.38
-sheet.change_column_width(1, 3.38)  # Sets second column width to 3.38
-sheet.change_column_width(2, 25.38)  # Sets third column width to 20
-sheet.change_column_width(3, 31.38)  # Sets fourth column width to 20
-sheet.change_column_width(4, 8.5)  # Sets fifth column width to 20
-sheet.change_column_width(5, 9.38)  # Sets sixth column width to 20
-sheet.change_column_width(6, 9.13)  # Sets seventyh column width to 20
+column_width = [
+	[0, 3.38],
+	[1, 3.38],
+	[2, 25.38],
+	[3, 31.38],
+	[4, 8.5],
+	[5, 9.38],
+	[6, 9.13]
+]
+
+# column width setter - values taken from array column_width
+xx = 0
+xy = 0
+yy = 0
+yz = 1
+a = column_width.length
+
+while xx < a
+	x = column_width[xx][xy]
+	y = column_width[yy][yz]
+	puts  "sheet.change_row_height(" + "#{x}" ", " "#{y}" + ")";
+	xx += 1
+	yy += 1
+end
 workbook.write("./form.xlsx")
+
+
 
 #merge columns - head rows color 'D9D9D9'
 sheet.merge_cells(0, 1, 0, 6)  # Merges B1:G1
