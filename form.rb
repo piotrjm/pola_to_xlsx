@@ -53,11 +53,11 @@ sheet.sheet_name = "1.1 POPC" #rename Sheet1 to 1.1 POPC
 
 font_size = 11
 font_name = 'Trebuchet MS'
-row_number = 1
-while row_number < 7
-	sheet.change_column_font_name(row_number, font_name) #sets given column font to Trebuchet MS
-	sheet.change_column_font_size(row_number, font_size) #sets given column font size to 11
-	row_number += 1
+column_number = 1
+while column_number < 7
+	sheet.change_column_font_name(column_number, font_name) #sets given column font to Trebuchet MS
+	sheet.change_column_font_size(column_number, font_size) #sets given column font size to 11
+	column_number += 1
 end
 
 column_width = [
@@ -70,20 +70,20 @@ column_width = [
 	[6, 9.13]
 ]
 
-# column width setter - values taken from array column_width
+#column width setter - values taken from array column_width
 xx = 0
 xy = 0
 yy = 0
 yz = 1
-a = column_width.length
 
-while xx < a
-	x = column_width[xx][xy]
-	y = column_width[yy][yz]
-	puts  "sheet.change_row_height(" + "#{x}" ", " "#{y}" + ")";
+while xx < column_width.length
+	a_cw = column_width[xx][xy];
+	b_cw = column_width[yy][yz];
+	sheet.change_column_width(a_cw, b_cw)
 	xx += 1
 	yy += 1
 end
+
 workbook.write("./form.xlsx")
 
 
